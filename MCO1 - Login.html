@@ -1,6 +1,7 @@
 <html>
 <head>
 <link rel="stylesheet" type= "text/css"  href="StyleMCO1 - Login.css">
+
 </head>
 <title>Login</title>
 <body>
@@ -8,27 +9,55 @@
 
 <form>
 <label>Username: </label>
-<input type="text"><br><br>
+<input type="text" name="Username" id="Username" ><br><br>
 <label>Password: </label>
-<input type="password"><br><br>
-
+<input type="password" name="Password" id="Password"><br><br>
 
 </form>
 
-<script>
-function Registration(){
-   location.replace("MCO1 - Registration.html")
-}
+<script type="text/javascript">
+   function checkUsername(username){
+      if(username == "Admin")
+         return true
+      else 
+         return false
+    }
+	
+	function checkPassword(password){
+	   if(password == "p@ssword")
+         return true
+      else
+         return false
+    }
+	
+	function check(){
+	   var Username = document.getElementById("Username").value;
+	   var Password = document.getElementById("Password").value;
+       Registration();
+	}
+	
+	function Registration(){
+	   
+	    if(!checkUsername(Username) || !checkPassword(Password)){
+            if(!checkUsername(Username)){
+               alert("Invalid Username");
+            }
+			
+            if(!checkPassword(Password)){
+               alert("Invalid Password");
+            }
+        }
+    }
 
 </script>
 
-</div>
+<form name="buttons">
+<input type="button" value="Login"
+onclick="check();"/>
 
-<div id= "button">
-<input type="button" value="Login"/>
-<input type="button" onclick="Registration()" value="Sign Up"/>
-</div>
 
+</form>
+</div>
 </body>
 </html>
 

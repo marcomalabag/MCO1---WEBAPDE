@@ -1,7 +1,9 @@
 <html>
 <head>
    <link rel="stylesheet" type= "text/css"  href="StyleMCO1 - Login.css">
-   <script type="text/javascript" src="htt[s://code.jquery.com/jquery-3.4.1.min.js"></script>
+   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+      
+   </script>
 </head>
 <title>Login</title>
 <body>
@@ -16,11 +18,12 @@
 </form>
 
 <script type="text/javascript">
-	function SetUsernameError(){
-		document.getElementById("Username").style.background="red";
+	function gotoDashboard(){
+		window.location.replace("MCO1-Dashboard.html")
 	}
 	
-	function SetPasswordError(){
+	function SetError(){
+		document.getElementById("Username").style.background="red";
 		document.getElementById("Password").style.background="red";
 	}
 	
@@ -45,19 +48,34 @@
 	
 	function Registration(){
 		if(!checkUsername(Username) || !checkPassword(Password)){
-			if(!checkUsername(Username)){
-				alert("Invalid Username");
-				SetUsernameError();
-			}
-			
-			if(!checkPassword(Password)){
-				alert("Invalid Password");
-				SetPasswordError();
-			}
+				alert("Invalid Username or Password");
+				SetError();
+		}
+		else{
+		     gotoDashboard();
 		}
 	}
-
+	
+	$(document).ready(function(){
+	     $("#Username").focus(function(){
+		    $(this).css("background-color", "white");
+        });
+		$("#Username").blur(function(){
+		   $(this).css("background-color", "white");
+        });
+    });
+	  
+    $(document).ready(function(){
+	     $("#Password").focus(function(){
+		    $(this).css("background-color", "white");
+        });
+		$("#Password").blur(function(){
+		   $(this).css("background-color", "white");
+        });
+      });	
+	
 </script>
+
 
 <form name="buttons">
 <input type="button" value="Login"
@@ -68,4 +86,3 @@ onclick="check();"/>
 </div>
 </body>
 </html>
-

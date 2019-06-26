@@ -52,9 +52,21 @@ Species: <select id="SelectSpecies" size="1">
 		 <input type="button" value="Enter" onclick="check()"/>
 		 </form>
 
-<script  type="text/javascript" src="krustykrab - burgersales.json">
-      var mydata = JSON.parse(krustykrab - burgersales);
-      alert(mydata);
+<script type = "text/javascript">
+		function logout(){
+			alert("Logout Success!");
+			window.location.href = "MCO1 - Login.html";
+		}
+		
+        function Home(){
+		   alert("Successfully signed out");
+		   window.location.href = "MCO1 - Dashboard.html";
+		}
+		
+		function ToSpecies(){
+		    window.location.replace("MCO1 - Species.html");
+		}
+		
 </script>
 
 

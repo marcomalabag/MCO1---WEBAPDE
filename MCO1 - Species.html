@@ -1,7 +1,18 @@
 <html>
 <head>
-<head>
-<body>
+	<title>Krusty Krab</title>
+	<link rel="stylesheet" type= "text/css"  href="MCO1 - Dashboard.css">
+	<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+	<link rel = "icon" href = "icon.png">
+	<style type = "text/css">
+		body {
+			font-family: 'Gloria Hallelujah', cursive;
+	</style>
+</head>
+
+<body background = "BG.png">
+
+<div id ="Selection">
 
 Species: <select id="SelectSpecies" size="1">
     <option/>
@@ -21,12 +32,39 @@ Burger: <select id="SelectBurger" size="1">
     <option>Krabby Pattie</option>
 </select>
 
-<form name="EnterButton">
-<br>
-<br>
-<input type="button" value="Enter"/>
+</div>
 
-</form>
+<div id = "logo">
+			<img src = "KK.png" style = "width: 250px; height: 250px;">
+		</div>
+		
+		<input type = "button" value = "Logout" id = "logout" onclick = "logout()"/>
+		
+		<div id = "header">
+			<h1 size = "10px">Welcome to the Krusty Krab!</h1>
+		</div>
+		
+		<div id = "pages">
+			<input type = "button" value = "Home" onclick = "Home()"/>
+			<br><br>
+			<input type = "button" value = "Customers Served" onclick = "Home()"/>
+			<br><br>
+			<input type = "button" value = "Menu" onclick = "Home()"/>
+			<br><br>
+			<input type = "button" value = "Species" onclick = "ToSpecies()"/>
+		</div>
+		 
+		 <form name="EnterButton">
+		 <br>
+		 <br>
+		 <input type="button" value="Enter" onclick="check()"/>
+		 </form>
+
+<script  type="text/javascript" src="krustykrab - burgersales.json">
+      var mydata = JSON.parse(krustykrab - burgersales);
+      alert(mydata);
+</script>
+
 
 </body>
 

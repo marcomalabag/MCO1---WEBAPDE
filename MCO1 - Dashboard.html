@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>Krusty Krab</title>
+	<link rel="stylesheet" type= "text/css"  href="MCO1 - Dashboard.css">
+	<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+	<link rel = "icon" href = "icon.png">
+	<style type = "text/css">
+		body {
+			font-family: 'Gloria Hallelujah', cursive;
+	</style>
+</head>
+
+<body background = "BG.png">
+
+		<div id = "logo">
+			<img src = "KK.png" style = "width: 250px; height: 250px;">
+		</div>
+		
+		<input type = "button" value = "Logout" id = "logout" onclick = "logout()"/>
+		
+		<div id = "header">
+			<h1 size = "10px">Welcome to the Krusty Krab!</h1>
+		</div>
+		
+		<div id = "pages">
+			<input type = "button" value = "Home" onclick = "Home()"/>
+			<br><br>
+			<input type = "button" value = "Customers Served" onclick = "Home()"/>
+			<br><br>
+			<input type = "button" value = "Menu" onclick = "Home()"/>
+			<br><br>
+			<input type = "button" value = "Species" onclick = "ToSpecies()"/>
+		</div>
+		
+<script type = "text/javascript">
+		function logout(){
+			alert("Logout Success!");
+			window.location.href = "MCO1 - Login.html";
+		}
+		
+        function Home(){
+		   alert("Successfully signed out");
+		   window.location.href = "MCO1 - Dashboard.html";
+		}
+		
+		function ToSpecies(){
+		    window.location.replace("MCO1 - Species.html");
+		}
+		
+</script>
+
+
+
+</form>
+</body>
+</html>

@@ -1,0 +1,84 @@
+h1 {
+	color: #5298E8;
+	font-size: 40px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+body {
+	background-attachment:fixed;
+}
+
+#logo {
+	float: left;
+	position: relative;
+	z-index: 1;
+	right: -50px;
+	bottom: 10px;
+}
+
+#header {
+	padding: 20px;
+	margin: 20px;
+	background-color: #F2E258;
+	border-radius: 25px;
+	border-style: solid;
+	border-width: 15px;
+	border-color: red;
+	position: relative;
+	bottom: -175px;
+}
+
+#logout {
+	padding: 10px;
+	margin: 50px;
+	float: right; 
+	border-width: 5px;
+	position: relative;
+	bottom: -40px;
+	display: inline-block;
+	float: right;
+	width: 200px;
+	background-color: #e0a15e;
+	font-size: 20px;
+	border-radius: 100px;
+	font-family: inherit;
+	color: maroon;
+	text-align: center;
+}
+
+a:visited {
+	color: maroon;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+#pages {
+	padding: 30px;
+	margin: 50px;
+	float: left;
+	right: 250px;
+	background-color: white;
+	border-radius: 25px;
+	position: relative;
+	bottom: -120px;
+	border-style: solid;
+	border-width: 5px;
+	border-color: grey;
+}
+
+input {
+	display: inline-block;
+	float: right;
+	width: 200px;
+	background-color: #5298E8;
+	font-size: 20px;
+	padding: 5px;
+	margin: 5px;
+	border-radius: 100px;
+	font-family: inherit;
+	color: #F2E258;
+}

@@ -1,88 +1,97 @@
 <html>
-<head>
-   <link rel="stylesheet" type= "text/css"  href="StyleMCO1 - Login.css">
-   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-      
-   </script>
-</head>
-<title>Login</title>
-<body>
-<div class = "Login">
-
-<form>
-<label>Username: </label>
-<input type="text" name="Username" id="Username" ><br><br>
-<label>Password: </label>
-<input type="password" name="Password" id="Password"><br><br>
-
-</form>
-
-<script type="text/javascript">
-	function gotoDashboard(){
-		window.location.replace("MCO1-Dashboard.html")
-	}
+	<head>
+		<title>Krusty Krab</title>
+		<link rel="stylesheet" type= "text/css"  href="MCO1 - Login.css">
+		<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+		<link rel = "icon" href = "icon.png">
+		<style type = "text/css">
+			body {
+				font-family: 'Gloria Hallelujah', cursive;
+		</style>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+		</script>
+	</head>
 	
-	function SetError(){
-		document.getElementById("Username").style.background="red";
-		document.getElementById("Password").style.background="red";
-	}
-	
-	function checkUsername(username){
-		if(username == "Admin")
-			return true
+	<body background = "BG.png">
+		<div id = "logo">
+			<img src = "KK.png" style = "width: 250px; height: 250px;">
+		</div>
+		
+		<input type = "button" value = "Logout" id = "logout" onclick = "logout()"/>
+		
+		<div id = "header">
+			<h1 size = "10px">Welcome to the Krusty Krab!</h1>
+		</div>
+		
+		<div id = "main">
+			<hr/>
+			<form>
+				<label>Username: </label>
+				<input type="text" name = "user" id = "username" style = "display: inline-block; text-align: left; float: right; width:200px; border-radius: 10px;"/><br><br>
+				<label>Password: </label>
+				<input type="password" name = "pword" id = "password" style = "display: inline-block; text-align: left; float: right; width:200px; border-radius: 10px;"><br><br>
+				<input type = "button" value = "Login" style = "border-radius: 100px; font-family: inherit; font-size: 20px; width: 100px; color: #F2E258; background-color: #5298E8;" onclick = "check()";/>
+			</form>
+			<hr/>
+		</div>
+		
+		<script type = "text/javascript">
+			function gotoDashboard(){
+				window.location.replace("MCO1 - Dashboard.html");
+			}
+			
+			function SetError(){
+				document.getElementById("username").style.background="red";
+				document.getElementById("password").style.background="red";
+			}
+			
+			function checkUsername(Username){
+				if(Username == "Admin")
+					return true
                 else 
-                        return false
-        }
-	function checkPassword(password){
-		if(password == "p@ssword")
-			return true
-		else
-			return false
-	}
-	
-	function check(){
-	   var Username = document.getElementById("Username").value;
-	   var Password = document.getElementById("Password").value;
-	   Registration();
-	}
-	
-	function Registration(){
-		if(!checkUsername(Username) || !checkPassword(Password)){
-				alert("Invalid Username or Password");
-				SetError();
-		}
-		else{
-		     gotoDashboard();
-		}
-	}
-	
-	$(document).ready(function(){
-	     $("#Username").focus(function(){
-		    $(this).css("background-color", "white");
-        });
-		$("#Username").blur(function(){
-		   $(this).css("background-color", "white");
-        });
-    });
+					return false
+			}
+			
+			function checkPassword(Password){
+				if(Password == "p@ssword")
+					return true
+				else
+					return false
+			}
+			
+			function check(){
+				var Username = document.getElementById("username").value;
+				var Password = document.getElementById("password").value;
+				Registration(Username, Password);
+			}
+			
+			function Registration(Username, Password){
+				if(!checkUsername(Username) || !checkPassword(Password)){
+					alert("Invalid Username or Password");
+					SetError();
+				}
+				else{
+					gotoDashboard();
+				}
+			}
+			
+			$(document).ready(function(){
+				$("#username").focus(function(){
+					$(this).css("background-color", "white");
+				});
+				$("#username").blur(function(){
+					$(this).css("background-color", "white");
+				});
+			});
 	  
-    $(document).ready(function(){
-	     $("#Password").focus(function(){
-		    $(this).css("background-color", "white");
-        });
-		$("#Password").blur(function(){
-		   $(this).css("background-color", "white");
-        });
-      });	
-	
-</script>
-
-
-<form name="buttons">
-<input type="button" value="Login"
-onclick="check();"/>
-
-
-</form>
-</div>
-</body>
+			$(document).ready(function(){
+				$("#password").focus(function(){
+					$(this).css("background-color", "white");
+				});
+				$("#password").blur(function(){
+					$(this).css("background-color", "white");
+				});
+			});	
+		</script>
+	</body>
 </html>

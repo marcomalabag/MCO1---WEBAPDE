@@ -48,8 +48,21 @@
 			<option value="Sea Lion">Sea Lion</option>
 			</select>
 		</div>
+		
+		<table id="myTable">
+		<tr>
+		</tr>
+		</table>
+		<br>
 			
 		<script type = "text/javascript">
+				function deletetable(){
+					var nTable = document.getElementById("myTable").rows.length;
+					for(i = 0; i < nTable - 1; i++){
+						document.getElementById("myTable").deleteRow(0);
+					}
+				}
+				
 				function logout(){
 					alert("Logout Success!");
 					window.location.href = "MCO1 - Login.html";
@@ -63,8 +76,469 @@
 					window.location.replace("MCO1 - Species.html");
 				}
 				function SelectSpecies(sel){
-				   
+				   deletetable();
+					if(sel == ""){
+						displayWholeTable();
+					}
+					
+					else if(sel == "Leatherback Turtle"){
+						displayLeatherback_TurtleTable();
+					}
+					
+					else if(sel == "Salmon"){
+						displaySalmonTable();
+					}
+					
+					else if(sel == "Seahorse"){
+						displaySeahorseTable();
+					}
+					else if(sel == "Coral"){
+						displayCoralTable();
+					}
+					else if(sel == "Giant Clam"){
+						displayGiant_ClamTable();
+					}
+					else if(sel == "Gray Whale"){
+						displayGray_WhaleTable();
+					}
+					else if(sel == "Sea Lion"){
+						displaySea_lionTable();
+					}
 				}
+				
+				function displayWholeTable(){
+					var xmlhttp = new XMLHttpRequest();
+					xmlhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						var myArr = JSON.parse(this.responseText);
+						var table = document.getElementById("myTable");
+						
+						var row = table.insertRow(0);
+						var header = table.createTHead();
+						var row1 = header.insertRow(0);
+						var blank = row1.insertCell(0)
+						var cells = row1.insertCell(1);
+						var cells1 = row1.insertCell(2);
+						var cells2 = row1.insertCell(3);
+						
+						blank.innerHTML = "<b></b>";
+						cells.innerHTML = "<b>Krusty Combo</b>";
+						cells1.innerHTML = "<b>Krabby Pattie</b>";
+						cells2.innerHTML = "<b>Kursty Deluxe</b>";
+				
+						var row = table.insertRow(1);
+						var cell0 = row.insertCell(0) 
+						var cell1 = row.insertCell(1); 
+						var cell2 = row.insertCell(2);
+						var cell3 = row.insertCell(3);
+						cell0.innerHTML = "leatherback turtle";
+						cell1.innerHTML = myArr.Krusty_Combo.leatherback_turtle;
+						cell2.innerHTML = myArr.Krabby_Pattie.leatherback_turtle;
+						cell3.innerHTML = myArr.Krusty_Deluxe.leatherback_turtle;
+						
+						var row = table.insertRow(2);
+						var cell0 = row.insertCell(0) 
+						var cell1 = row.insertCell(1); 
+						var cell2 = row.insertCell(2);
+						var cell3 = row.insertCell(3);
+						cell0.innerHTML = "salmon";
+						cell1.innerHTML = myArr.Krusty_Combo.salmon;
+						cell2.innerHTML = myArr.Krabby_Pattie.salmon;
+						cell3.innerHTML = myArr.Krusty_Deluxe.salmon;
+				
+				var row = table.insertRow(3);
+				var cell0 = row.insertCell(0) 
+				var cell1 = row.insertCell(1); 
+				var cell2 = row.insertCell(2);
+				var cell3 = row.insertCell(3);
+				cell0.innerHTML = "seahorse";
+				cell1.innerHTML = myArr.Krusty_Combo.seahorse;
+				cell2.innerHTML = myArr.Krabby_Pattie.seahorse;
+				cell3.innerHTML = myArr.Krusty_Deluxe.seahorse;
+				
+				var row = table.insertRow(4);
+				var cell0 = row.insertCell(0) 
+				var cell1 = row.insertCell(1); 
+				var cell2 = row.insertCell(2);
+				var cell3 = row.insertCell(3);
+				cell0.innerHTML = "coral";
+				cell1.innerHTML = myArr.Krusty_Combo.coral;
+				cell2.innerHTML = myArr.Krabby_Pattie.coral;
+				cell3.innerHTML = myArr.Krusty_Deluxe.coral;
+				
+				var row = table.insertRow(5);
+				var cell0 = row.insertCell(0) 
+				var cell1 = row.insertCell(1); 
+				var cell2 = row.insertCell(2);
+				var cell3 = row.insertCell(3);
+				cell0.innerHTML = "giant clam";
+				cell1.innerHTML = myArr.Krusty_Combo.giant_clam;
+				cell2.innerHTML = myArr.Krabby_Pattie.giant_clam;
+				cell3.innerHTML = myArr.Krusty_Deluxe.giant_clam;
+			
+				var row = table.insertRow(6);
+				var cell0 = row.insertCell(0) 
+				var cell1 = row.insertCell(1); 
+				var cell2 = row.insertCell(2);
+				var cell3 = row.insertCell(3);
+				cell0.innerHTML = "gray whale";
+				cell1.innerHTML = myArr.Krusty_Combo.gray_whale;
+				cell2.innerHTML = myArr.Krabby_Pattie.gray_whale;
+				cell3.innerHTML = myArr.Krusty_Deluxe.gray_whale;
+				
+				var row = table.insertRow(7);
+				var cell0 = row.insertCell(0) 
+				var cell1 = row.insertCell(1); 
+				var cell2 = row.insertCell(2);
+				var cell3 = row.insertCell(3);
+				cell0.innerHTML = "sea lion";
+				cell1.innerHTML = myArr.Krusty_Combo.sea_lion;
+				cell2.innerHTML = myArr.Krabby_Pattie.sea_lion;
+				cell3.innerHTML = myArr.Krusty_Deluxe.sea_lion;
+			}
+		};
+		xmlhttp.open("GET", "http://localhost:3000/burger_by_species", true);
+		xmlhttp.send();
+	}
+	
+	function displayLeatherback_TurtleTable(){
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+				var myArr = JSON.parse(this.responseText);
+				var table = document.getElementById("myTable");
+				
+				var row = table.insertRow(0);
+				var header = table.createTHead();
+				var row1 = header.insertRow(0);
+				var blank = row1.insertCell(0)
+				var cells = row1.insertCell(1);
+				var cells1 = row1.insertCell(2);
+				var cells2 = row1.insertCell(3);
+				
+				blank.innerHTML = "<b></b>";
+				cells.innerHTML = "<b>Krusty Combo</b>";
+				cells1.innerHTML = "<b>Krabby Pattie</b>";
+				cells2.innerHTML = "<b>Kursty Deluxe</b>";
+				
+				var row = table.insertRow(1);
+				var cell0 = row.insertCell(0) 
+				var cell1 = row.insertCell(1); 
+				var cell2 = row.insertCell(2);
+				var cell3 = row.insertCell(3);
+				cell0.innerHTML = "leatherback turtle";
+				cell1.innerHTML = myArr.Krusty_Combo.leatherback_turtle;
+				cell2.innerHTML = myArr.Krabby_Pattie.leatherback_turtle;
+				cell3.innerHTML = myArr.Krusty_Deluxe.leatherback_turtle;
+			}
+		};
+		xmlhttp.open("GET", "http://localhost:3000/burger_by_species", true);
+		xmlhttp.send();
+	}
+	
+	function displaySalmonTable(){
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+				var myArr = JSON.parse(this.responseText);
+				var table = document.getElementById("myTable");
+				
+				var row = table.insertRow(0);
+				var header = table.createTHead();
+				var row1 = header.insertRow(0);
+				var blank = row1.insertCell(0)
+				var cells = row1.insertCell(1);
+				var cells1 = row1.insertCell(2);
+				var cells2 = row1.insertCell(3);
+				
+				blank.innerHTML = "<b></b>";
+				cells.innerHTML = "<b>Krusty Combo</b>";
+				cells1.innerHTML = "<b>Krabby Pattie</b>";
+				cells2.innerHTML = "<b>Kursty Deluxe</b>";
+				
+				var row = table.insertRow(1);
+				var cell0 = row.insertCell(0) 
+				var cell1 = row.insertCell(1); 
+				var cell2 = row.insertCell(2);
+				var cell3 = row.insertCell(3);
+				cell0.innerHTML = "salmon";
+				cell1.innerHTML = myArr.Krusty_Combo.salmon;
+				cell2.innerHTML = myArr.Krabby_Pattie.salmon;
+				cell3.innerHTML = myArr.Krusty_Deluxe.salmon;
+			}
+		};
+		xmlhttp.open("GET", "http://localhost:3000/burger_by_species", true);
+		xmlhttp.send();
+	}
+	
+	function displaySeahorseTable(){
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+				var myArr = JSON.parse(this.responseText);
+				var table = document.getElementById("myTable");
+				
+				var row = table.insertRow(0);
+				var header = table.createTHead();
+				var row1 = header.insertRow(0);
+				var blank = row1.insertCell(0)
+				var cells = row1.insertCell(1);
+				var cells1 = row1.insertCell(2);
+				var cells2 = row1.insertCell(3);
+				
+				blank.innerHTML = "<b></b>";
+				cells.innerHTML = "<b>Krusty Combo</b>";
+				cells1.innerHTML = "<b>Krabby Pattie</b>";
+				cells2.innerHTML = "<b>Kursty Deluxe</b>";
+				
+				var row = table.insertRow(1);
+				var cell0 = row.insertCell(0) 
+				var cell1 = row.insertCell(1); 
+				var cell2 = row.insertCell(2);
+				var cell3 = row.insertCell(3);
+				cell0.innerHTML = "seahorse";
+				cell1.innerHTML = myArr.Krusty_Combo.seahorse;
+				cell2.innerHTML = myArr.Krabby_Pattie.seahorse;
+				cell3.innerHTML = myArr.Krusty_Deluxe.seahorse;
+			}
+		};
+		xmlhttp.open("GET", "http://localhost:3000/burger_by_species", true);
+		xmlhttp.send();	
+	}
+	
+	function displayCoralTable(){
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+				var myArr = JSON.parse(this.responseText);
+				var table = document.getElementById("myTable");
+				
+				var row = table.insertRow(0);
+				var header = table.createTHead();
+				var row1 = header.insertRow(0);
+				var blank = row1.insertCell(0)
+				var cells = row1.insertCell(1);
+				var cells1 = row1.insertCell(2);
+				var cells2 = row1.insertCell(3);
+				
+				blank.innerHTML = "<b></b>";
+				cells.innerHTML = "<b>Krusty Combo</b>";
+				cells1.innerHTML = "<b>Krabby Pattie</b>";
+				cells2.innerHTML = "<b>Kursty Deluxe</b>";
+				
+				var row = table.insertRow(1);
+				var cell0 = row.insertCell(0) 
+				var cell1 = row.insertCell(1); 
+				var cell2 = row.insertCell(2);
+				var cell3 = row.insertCell(3);
+				cell0.innerHTML = "coral";
+				cell1.innerHTML = myArr.Krusty_Combo.coral;
+				cell2.innerHTML = myArr.Krabby_Pattie.coral;
+				cell3.innerHTML = myArr.Krusty_Deluxe.coral;
+			}
+		};
+		xmlhttp.open("GET", "http://localhost:3000/burger_by_species", true);
+		xmlhttp.send();
+	}
+	
+	function displayGiant_ClamTable(){
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+				var myArr = JSON.parse(this.responseText);
+				var table = document.getElementById("myTable");
+				
+				var row = table.insertRow(0);
+				var header = table.createTHead();
+				var row1 = header.insertRow(0);
+				var blank = row1.insertCell(0)
+				var cells = row1.insertCell(1);
+				var cells1 = row1.insertCell(2);
+				var cells2 = row1.insertCell(3);
+				
+				blank.innerHTML = "<b></b>";
+				cells.innerHTML = "<b>Krusty Combo</b>";
+				cells1.innerHTML = "<b>Krabby Pattie</b>";
+				cells2.innerHTML = "<b>Kursty Deluxe</b>";
+				
+				var row = table.insertRow(1);
+				var cell0 = row.insertCell(0) 
+				var cell1 = row.insertCell(1); 
+				var cell2 = row.insertCell(2);
+				var cell3 = row.insertCell(3);
+				cell0.innerHTML = "giant clam";
+				cell1.innerHTML = myArr.Krusty_Combo.giant_clam;
+				cell2.innerHTML = myArr.Krabby_Pattie.giant_clam;
+				cell3.innerHTML = myArr.Krusty_Deluxe.giant_clam;
+			}
+		};
+		xmlhttp.open("GET", "http://localhost:3000/burger_by_species", true);
+		xmlhttp.send();
+	}
+	
+	function displayGray_WhaleTable(){
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+				var myArr = JSON.parse(this.responseText);
+				var table = document.getElementById("myTable");
+				
+				var row = table.insertRow(0);
+				var header = table.createTHead();
+				var row1 = header.insertRow(0);
+				var blank = row1.insertCell(0)
+				var cells = row1.insertCell(1);
+				var cells1 = row1.insertCell(2);
+				var cells2 = row1.insertCell(3);
+				
+				blank.innerHTML = "<b></b>";
+				cells.innerHTML = "<b>Krusty Combo</b>";
+				cells1.innerHTML = "<b>Krabby Pattie</b>";
+				cells2.innerHTML = "<b>Kursty Deluxe</b>";
+				
+				var row = table.insertRow(1);
+				var cell0 = row.insertCell(0) 
+				var cell1 = row.insertCell(1); 
+				var cell2 = row.insertCell(2);
+				var cell3 = row.insertCell(3);
+				cell0.innerHTML = "gray whale";
+				cell1.innerHTML = myArr.Krusty_Combo.gray_whale;
+				cell2.innerHTML = myArr.Krabby_Pattie.gray_whale;
+				cell3.innerHTML = myArr.Krusty_Deluxe.gray_whale;
+			}
+		};
+		xmlhttp.open("GET", "http://localhost:3000/burger_by_species", true);
+		xmlhttp.send();
+	}
+	
+	function displaySea_lionTable(){
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+				var myArr = JSON.parse(this.responseText);
+				var table = document.getElementById("myTable");
+				
+				var row = table.insertRow(0);
+				var header = table.createTHead();
+				var row1 = header.insertRow(0);
+				var blank = row1.insertCell(0)
+				var cells = row1.insertCell(1);
+				var cells1 = row1.insertCell(2);
+				var cells2 = row1.insertCell(3);
+				
+				blank.innerHTML = "<b></b>";
+				cells.innerHTML = "<b>Krusty Combo</b>";
+				cells1.innerHTML = "<b>Krabby Pattie</b>";
+				cells2.innerHTML = "<b>Kursty Deluxe</b>";
+				
+				var row = table.insertRow(1);
+				var cell0 = row.insertCell(0) 
+				var cell1 = row.insertCell(1); 
+				var cell2 = row.insertCell(2);
+				var cell3 = row.insertCell(3);
+				cell0.innerHTML = "sea lion";
+				cell1.innerHTML = myArr.Krusty_Combo.sea_lion;
+				cell2.innerHTML = myArr.Krabby_Pattie.sea_lion;
+				cell3.innerHTML = myArr.Krusty_Deluxe.sea_lion;
+			}
+		};
+		xmlhttp.open("GET", "http://localhost:3000/burger_by_species", true);
+		xmlhttp.send();
+	}
+	
+	var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var myArr = JSON.parse(this.responseText);
+			var table = document.getElementById("myTable");
+			
+			var row = table.insertRow(0);
+			var header = table.createTHead();
+			var row1 = header.insertRow(0);
+			var blank = row1.insertCell(0)
+			var cells = row1.insertCell(1);
+			var cells1 = row1.insertCell(2);
+			var cells2 = row1.insertCell(3);
+			blank.innerHTML = "<b></b>";
+			cells.innerHTML = "<b>Krusty Combo</b>";
+			cells1.innerHTML = "<b>Krabby Pattie</b>";
+			cells2.innerHTML = "<b>Kursty Deluxe</b>";
+				
+				var row = table.insertRow(1);
+				var cell0 = row.insertCell(0) 
+				var cell1 = row.insertCell(1); 
+				var cell2 = row.insertCell(2);
+				var cell3 = row.insertCell(3);
+				cell0.innerHTML = "leatherback turtle";
+				cell1.innerHTML = myArr.Krusty_Combo.leatherback_turtle;
+				cell2.innerHTML = myArr.Krabby_Pattie.leatherback_turtle;
+				cell3.innerHTML = myArr.Krusty_Deluxe.leatherback_turtle;
+			
+			
+				var row = table.insertRow(2);
+				var cell0 = row.insertCell(0) 
+				var cell1 = row.insertCell(1); 
+				var cell2 = row.insertCell(2);
+				var cell3 = row.insertCell(3);
+				cell0.innerHTML = "salmon";
+				cell1.innerHTML = myArr.Krusty_Combo.salmon;
+				cell2.innerHTML = myArr.Krabby_Pattie.salmon;
+				cell3.innerHTML = myArr.Krusty_Deluxe.salmon;
+				
+				var row = table.insertRow(3);
+				var cell0 = row.insertCell(0) 
+				var cell1 = row.insertCell(1); 
+				var cell2 = row.insertCell(2);
+				var cell3 = row.insertCell(3);
+				cell0.innerHTML = "seahorse";
+				cell1.innerHTML = myArr.Krusty_Combo.seahorse;
+				cell2.innerHTML = myArr.Krabby_Pattie.seahorse;
+				cell3.innerHTML = myArr.Krusty_Deluxe.seahorse;
+				
+				var row = table.insertRow(4);
+				var cell0 = row.insertCell(0) 
+				var cell1 = row.insertCell(1); 
+				var cell2 = row.insertCell(2);
+				var cell3 = row.insertCell(3);
+				cell0.innerHTML = "coral";
+				cell1.innerHTML = myArr.Krusty_Combo.coral;
+				cell2.innerHTML = myArr.Krabby_Pattie.coral;
+				cell3.innerHTML = myArr.Krusty_Deluxe.coral;
+				
+				var row = table.insertRow(5);
+				var cell0 = row.insertCell(0) 
+				var cell1 = row.insertCell(1); 
+				var cell2 = row.insertCell(2);
+				var cell3 = row.insertCell(3);
+				cell0.innerHTML = "giant clam";
+				cell1.innerHTML = myArr.Krusty_Combo.giant_clam;
+				cell2.innerHTML = myArr.Krabby_Pattie.giant_clam;
+				cell3.innerHTML = myArr.Krusty_Deluxe.giant_clam;
+			
+				var row = table.insertRow(6);
+				var cell0 = row.insertCell(0) 
+				var cell1 = row.insertCell(1); 
+				var cell2 = row.insertCell(2);
+				var cell3 = row.insertCell(3);
+				cell0.innerHTML = "gray whale";
+				cell1.innerHTML = myArr.Krusty_Combo.gray_whale;
+				cell2.innerHTML = myArr.Krabby_Pattie.gray_whale;
+				cell3.innerHTML = myArr.Krusty_Deluxe.gray_whale;
+				
+				var row = table.insertRow(7);
+				var cell0 = row.insertCell(0) 
+				var cell1 = row.insertCell(1); 
+				var cell2 = row.insertCell(2);
+				var cell3 = row.insertCell(3);
+				cell0.innerHTML = "sea lion";
+				cell1.innerHTML = myArr.Krusty_Combo.sea_lion;
+				cell2.innerHTML = myArr.Krabby_Pattie.sea_lion;
+				cell3.innerHTML = myArr.Krusty_Deluxe.sea_lion;
+	}
+};
+xmlhttp.open("GET", "http://localhost:3000/burger_by_species", true);
+xmlhttp.send();		
+	
 		</script>
 	</body>
 </html>

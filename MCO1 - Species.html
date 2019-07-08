@@ -37,7 +37,7 @@
 				 
 		<div id = "main">
 			<label style = "font-size: 30px;">Species: </label>
-			<select id="selectSpecies" size="1" onchange="SelectSpecies(this.value)">
+			<select id="selectSpecies" size="1" >
 			<option value="">Option</option>
 			<option value="Leatherback Turtle">Leatherback Turtle</option>
 			<option value="Salmon">Salmon</option>
@@ -47,7 +47,9 @@
 			<option value="Gray Whale">Gray Whale</option>
 			<option value="Sea Lion">Sea Lion</option>
 			</select>
-		</div>
+		</div> 
+		
+		<input type = "button" value = "Enter" id="Submit" onclick="SelectSpecies()"/>
 		
 		<table id="myTable">
 		<tr>

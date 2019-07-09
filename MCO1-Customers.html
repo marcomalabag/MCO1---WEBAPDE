@@ -1,25 +1,30 @@
 <html>
-	<head>
-		<title>Krusty Krab</title>
-		<link rel="stylesheet" type= "text/css"  href="MCO1 - Species.css">
-		<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
-		<link rel = "icon" href = "icon.png">
-		<style type = "text/css">
-			body {
-				font-family: 'Gloria Hallelujah', cursive;
-		</style>
-	</head>
-	
-	<body background = "BG.png">
-	
-	<table id="myTable">
+<head>
+<style>
+table, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<table id="myTable1">
   <tr>
     
   </tr>
 </table>
 <br>
 
-	<label style = "font-size: 30px;">Day: </label>
+<table id="myTable">
+  <tr>
+    
+  </tr>
+</table>
+<br>
+
+
+
+<label style = "font-size: 30px;">Day: </label>
 			<select id="Date" size="1" >
 			<option value="">Option</option>
 			<option value= 1>Monday</option>
@@ -65,76 +70,68 @@
 		
 		
 
+<script>
 
-	
-		<div id ="Selection">
-			
-		</div>
-		
-		<div id = "logo">
-			<img src = "KK.png" style = "width: 250px; height: 250px;">
-		</div>
-				
-		<input type = "button" value = "Logout" id = "logout" onclick = "logout()"/>
-				
-		<div id = "header">
-			<h1 size = "10px">Welcome to the Krusty Krab!</h1>
-		</div>
-				
-		<div id = "pages">
-			<input type = "button" value = "Home" onclick = "Home()"/>
-			<br><br>
-			<input type = "button" value = "Customers Served" onclick = "customer()"/>
-			<br><br>
-			<input type = "button" value = "Menu" onclick = "menu()"/>
-			<br><br>
-			<input type = "button" value = "Species" onclick = "species()"/>
-		</div>
-				 
-		<div id = "main">
-			<label style = "font-size: 30px;">Customers Served: </label>
-			<select id="selectSpecies" size="1" onchange="SelectSpecies(this.value)">
-			<option value="">Option</option>
-			<option value="Leatherback Turtle">Leatherback Turtle</option>
-			<option value="Salmon">Salmon</option>
-			<option value="Seahorse">Seahorse</option>
-			<option value="Coral">Coral</option>
-			<option value="Giant Clam">Giant Clam</option>
-			<option value="Gray Whale">Gray Whale</option>
-			<option value="Sea Lion">Sea Lion</option>
-			</select>
-		</div>
-			
-		<script type = "text/javascript">
-				function logout(){
-					alert("Logout Success!");
-					window.location.href = "MCO1 - Login.html";
-				}
-				
-				function Home(){
-				   window.location.href = "MCO1 - Dashboard.html";
-				}
-				
-				function customer(){
-					window.location.href = "MCO1 - Customers.html";
-				}
-				
-				function menu(){
-					window.location.href = "MCO1 - Menu.html";
-				}
-				
-				function species(){
-					window.location.href = "MCO1 - Species.html";
-				}
-				function SelectSpecies(sel){
-				   
-				}
-				
-				function deletetable(){
+	function deletetable(){
 		var nTable = document.getElementById("myTable").rows.length;
 		for(i = 0; i < nTable - 1; i++){
 			document.getElementById("myTable").deleteRow(0);
 		}
+	}
+	
+	function deletesecondtable(){
+		var nTable = document.getElementById("myTable1").rows.length;
+		for(i = 0; i < nTable - 1; i++){
+			document.getElementById("myTable1").deleteRow(0);
+		}
+	}
+	
+	function converthours(days){
+		if(days == ""){
+			return "Not Specified";
+		}
+		else if(days == 0){
+			return "Sunday";
+		}
+		else if(days == 1){
+			return "Monday";
+		}
+		else if(days == 2){
+			return "Tuesday";
+		}
+		else if(days == 3){
+			return "Wednesday";
+		}
+		else if(days == 4){
+			return "Thursday";
+		}
+		else if(days == 5){
+			return "Friday";
+		}
+		else if(days == 6){
+			return "Saturday";
+		}
+	}
+	
+	function secondTable(length, days, times){
+		var actualDay = converthours(days);
+		
+		var table1 = document.getElementById("myTable1");
+		var row = table1.insertRow(0);
+		var cell1 = row.insertCell(0); 
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		cell1.innerHTML = "Day";
+		cell2.innerHTML = "Hour";
+		cell3.innerHTML = "Number of Customers";
+		
+		var row = table1.insertRow(1);
+		var cell1 = row.insertCell(0); 
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		cell1.innerHTML = actualDay;
+		cell2.innerHTML = times;
+		cell3.innerHTML = length;
 	}
 	
 	function SelectDateandTime(){
@@ -146,12 +143,11 @@
 		xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 		var myArr = JSON.parse(this.responseText);
-		
+		var table = document.getElementById("myTable");
 		for(i = myArr.length - 1; i > -1; i--){
 			var date = new Date(myArr[i].datetime);
 				if(times == ""){
-					if(date.getDay() == days){
-						var table = document.getElementById("myTable");
+					if(date.getDay() == days ){
 						var row = table.insertRow(0);
 						var cell1 = row.insertCell(0); 
 						var cell2 = row.insertCell(1);
@@ -163,7 +159,6 @@
 				}
 				else if(days == ""){
 					if(date.getHours() == times){
-						var table = document.getElementById("myTable");
 						var row = table.insertRow(0);
 						var cell1 = row.insertCell(0); 
 						var cell2 = row.insertCell(1);
@@ -178,40 +173,29 @@
 					i = -1;
 				}
 				else{
-					if(date.getHours() == times && date.getDay() == days){
-						var table = document.getElementById("myTable");
-						var row = table.insertRow(0);
-						var cell1 = row.insertCell(0); 
-						var cell2 = row.insertCell(1);
-						var cell3 = row.insertCell(2);
-						cell1.innerHTML = date;
-						cell2.innerHTML = myArr[i].burger;
-						cell3.innerHTML = myArr[i].species;
+					if(date.getHours() == times && date.getDay() == days ){
+							var row = table.insertRow(0);
+							var cell1 = row.insertCell(0); 
+							var cell2 = row.insertCell(1);
+							var cell3 = row.insertCell(2);
+							cell1.innerHTML = date;
+							cell2.innerHTML = myArr[i].burger;
+							cell3.innerHTML = myArr[i].species;
 					}
 				}
 			}
 			
 		}
-		var table = document.getElementById("myTable");
-		var length = table.rows.length;
-
-		deletetable();
-		
 		var row = table.insertRow(0);
 		var cell1 = row.insertCell(0); 
 		var cell2 = row.insertCell(1);
 		var cell3 = row.insertCell(2);
-		cell1.innerHTML = "Day";
-		cell2.innerHTML = "Hour";
-		cell3.innerHTML = "Number of Customers";
-		
-		var row = table.insertRow(1);
-		var cell1 = row.insertCell(0); 
-		var cell2 = row.insertCell(1);
-		var cell3 = row.insertCell(2);
-		cell1.innerHTML = days;
-		cell2.innerHTML = times;
-		cell3.innerHTML = length;	
+		cell1.innerHTML = "Day, date & time of order";
+		cell2.innerHTML = "Burger";
+		cell3.innerHTML = "Species that ordered";
+		var length = table.rows.length - 2;
+		deletesecondtable();
+		secondTable(length, days, times);	
 };
 
 xmlhttp.open("GET", "http://localhost:3000/sales", true);
@@ -219,6 +203,7 @@ xmlhttp.send();
 
 }
 	
-		</script>
-	</body>
+</script>
+
+</body>
 </html>

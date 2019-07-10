@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>Krusty Krab</title>
-		<link rel="stylesheet" type= "text/css"  href="MCO1 - Species.css">
+		<link rel="stylesheet" type= "text/css"  href="MCO1-Species.css">
 		<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
 		<link rel = "icon" href = "icon.png">
 		<style type = "text/css">
@@ -28,16 +28,16 @@
 		<div id = "pages">
 			<input type = "button" value = "Home" onclick = "Home()"/>
 			<br><br>
-			<input type = "button" value = "Customers Served" onclick = "Home()"/>
+			<input type = "button" value = "Customers Served" onclick = "customer()"/>
 			<br><br>
-			<input type = "button" value = "Menu" onclick = "Home()"/>
+			<input type = "button" value = "Menu" onclick = "ToMenu()"/>
 			<br><br>
 			<input type = "button" value = "Species" onclick = "species()"/>
 		</div>
 				 
 		<div id = "main">
 			<label style = "font-size: 30px;">Species: </label>
-			<select id="selectSpecies" size="1" >
+			<select id="selectSpecies" size="1" onchange="SelectSpecies(this.value)">
 			<option value="">Option</option>
 			<option value="Leatherback Turtle">Leatherback Turtle</option>
 			<option value="Salmon">Salmon</option>
@@ -47,9 +47,7 @@
 			<option value="Gray Whale">Gray Whale</option>
 			<option value="Sea Lion">Sea Lion</option>
 			</select>
-		</div> 
-		
-		<input type = "button" value = "Enter" id="Submit" onclick="SelectSpecies()"/>
+		</div>
 		
 		<table id="myTable">
 		<tr>
@@ -63,6 +61,14 @@
 					for(i = 0; i < nTable - 1; i++){
 						document.getElementById("myTable").deleteRow(0);
 					}
+				}
+				
+				function customer(){
+					window.location.href = "MCO1-Customers.html";
+				}
+				
+				function ToMenu(){
+					window.location.href = "MCO1 - Menu.html";
 				}
 				
 				function logout(){

@@ -36,8 +36,13 @@
 		</div>
 				 
 		<div id = "main">
+		<table id="myTable">
+		<tr>
+		</tr>
+		</table>
+		<br>
 			<label style = "font-size: 30px;">Species: </label>
-			<select id="selectSpecies" size="1" onchange="SelectSpecies(this.value)">
+			<select id="selectSpecies" size="1" >
 			<option value="">Option</option>
 			<option value="Leatherback Turtle">Leatherback Turtle</option>
 			<option value="Salmon">Salmon</option>
@@ -47,13 +52,10 @@
 			<option value="Gray Whale">Gray Whale</option>
 			<option value="Sea Lion">Sea Lion</option>
 			</select>
+			
+			<input type = "button" value = "Enter" id="Submit" onclick="SelectSpecies()"/>
 		</div>
 		
-		<table id="myTable">
-		<tr>
-		</tr>
-		</table>
-		<br>
 			
 		<script type = "text/javascript">
 				function deletetable(){
@@ -83,8 +85,9 @@
 				function species(){
 					window.location.replace("MCO1 - Species.html");
 				}
-				function SelectSpecies(sel){
+				function SelectSpecies(){
 				   deletetable();
+				   sel = document.getElementById("selectSpecies").value;
 					if(sel == ""){
 						displayWholeTable();
 					}

@@ -1,38 +1,30 @@
 <html>
-<head>
-	<title>Krusty Krab</title>
-	<link rel="stylesheet" type= "text/css"  href="MCO1 - Dashboard.css">
-	<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
-	<link rel = "icon" href = "icon.png">
-	<style type = "text/css">
-		body {
-			font-family: 'Gloria Hallelujah', cursive;
-	</style>
-</head>
-
-<body background = "BG.png">
-
-<table id="myTable">
-		<tr>
-		</tr>
-		</table>
-		<br>
-
-<div id ="Selection">
-
-
-</div>
-
-<div id = "logo">
-			<img src = "KK.png" style = "width: 250px; height: 250px;">
+	<head>
+		<title>Krusty Krab</title>
+		<link rel="stylesheet" type= "text/css"  href="MCO1 - Species.css">
+		<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+		<link rel = "icon" href = "icon.png">
+		<style type = "text/css">
+			body {
+				font-family: 'Gloria Hallelujah', cursive;
+		</style>
+	</head>
+	
+	<body background = "BG.png">
+		<div id ="Selection">
+			
 		</div>
 		
+		<div id = "logo">
+			<img src = "KK.png" style = "width: 250px; height: 250px;">
+		</div>
+				
 		<input type = "button" value = "Logout" id = "logout" onclick = "logout()"/>
-		
+				
 		<div id = "header">
 			<h1 size = "10px">Welcome to the Krusty Krab!</h1>
 		</div>
-		
+				
 		<div id = "pages">
 			<input type = "button" value = "Home" onclick = "Home()"/>
 			<br><br>
@@ -42,15 +34,22 @@
 			<br><br>
 			<input type = "button" value = "Species" onclick = "species()"/>
 		</div>
-		 
-		 <form name="EnterButton">
-		 <br>
-		 <br>
-		 <input type="button" value="Enter" onclick="check()"/>
-		 </form>
-
-<script type = "text/javascript">
-		function logout(){
+		
+		<div id = "spongebob">
+			<img src = "spongebob.png">
+		</div>
+		
+		<div id = "main">
+		<label style = "font-size: 30px;">Menu Items: </label>	
+		<hr style = "border: solid 2px #68941f; border-radius: 5px;"/>
+		<table id="myTable" border = "5px" style = "background-color: white">
+			<tr>
+			</tr>
+		</table>
+		</div>
+			
+		<script type = "text/javascript">
+				function logout(){
 					alert("Logout Success!");
 					window.location.href = "MCO1 - Login.html";
 				}
@@ -60,7 +59,7 @@
 				}
 				
 				function customer(){
-					window.location.href = "MCO1-Customers.html";
+					window.location.href = "MCO1 - Customers.html";
 				}
 				
 				function menu(){
@@ -68,9 +67,13 @@
 				}
 				
 				function species(){
-					window.location.href = "MCO1-Species.html";
+					window.location.href = "MCO1 - Species.html";
 				}
-		var xmlhttp = new XMLHttpRequest();
+				function SelectSpecies(sel){
+				   
+				}
+				
+				var xmlhttp = new XMLHttpRequest();
 		var table = document.getElementById("myTable");
 		var row = table.insertRow(0);
 						var header = table.createTHead();
@@ -98,10 +101,6 @@
 		
 		xmlhttp.open("GET", "http://localhost:3000/burger_sales", true);
 		xmlhttp.send();
-		
-</script>
-
-
-</body>
-
+		</script>
+	</body>
 </html>

@@ -22,7 +22,7 @@
 		<div id = "header">
 			<h1 size = "10px">Welcome to the Krusty Krab!</h1>
 		</div>
-		
+
 		<div id = "main">
 			<hr/>
 			<form>
@@ -30,13 +30,14 @@
 				<input type="text" name = "user" id = "username" style = "display: inline-block; text-align: left; float: right; width:200px; border-radius: 10px;"/><br><br>
 				<label>Password: </label>
 				<input type="password" name = "pword" id = "password" style = "display: inline-block; text-align: left; float: right; width:200px; border-radius: 10px;"><br><br>
-				<input type = "button" value = "Login" style = "border-radius: 100px; font-family: inherit; font-size: 20px; width: 100px; color: #F2E258; background-color: #5298E8;" onclick = "check()";/>
+				<input type = "button" value = "Login" style = "border-radius: 100px; font-family: inherit; font-size: 20px; width: 100px; color: #F2E258; background-color: #5298E8; border-color: #057db5;" onclick = "check()";/>
 			</form>
 			<hr/>
 		</div>
 		
 		<script type = "text/javascript">
 			function gotoDashboard(){
+				alert("Login Success!");
 				window.location.replace("MCO1 - Dashboard.html");
 			}
 			

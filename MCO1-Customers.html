@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>Krusty Krab</title>
-		<link rel="stylesheet" type= "text/css"  href="MCO1-Species.css">
+		<link rel="stylesheet" type= "text/css"  href="MCO1 - Species.css">
 		<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
 		<link rel = "icon" href = "icon.png">
 		<style type = "text/css">
@@ -11,20 +11,10 @@
 	</head>
 	
 	<body background = "BG.png">
-
-<table id="myTable1">
-  <tr>
-    
-  </tr>
-</table>
-<br>
-
-<table id="myTable">
-  <tr>
-    
-  </tr>
-</table>
-<br>		
+		<div id ="Selection">
+			
+		</div>
+		
 		<div id = "logo">
 			<img src = "KK.png" style = "width: 250px; height: 250px;">
 		</div>
@@ -44,56 +34,70 @@
 			<br><br>
 			<input type = "button" value = "Species" onclick = "species()"/>
 		</div>
-
-<label style = "font-size: 30px;">Day: </label>
-			<select id="Date" size="1" >
-			<option value="">Option</option>
-			<option value= 1>Monday</option>
-			<option value= 2>Tuesday</option>
-			<option value= 3>Wednesday</option>
-			<option value= 4>Thursday</option>
-			<option value= 5>Friday</option>
-			<option value= 6>Saturday</option>
-			<option value= 0 >Sunday</option>
+		
+		<div id = "squidward">
+			<img src = "squidward.png">
+		</div>
+		
+		<div id = "main">
+			<label style = "font-size: 30px;">Day: </label>
+			<select id="Date" size="1">
+				<option value="">Option</option>
+				<option value= 1>Monday</option>
+				<option value= 2>Tuesday</option>
+				<option value= 3>Wednesday</option>
+				<option value= 4>Thursday</option>
+				<option value= 5>Friday</option>
+				<option value= 6>Saturday</option>
+				<option value= 0 >Sunday</option>
+			</select>
+			<label style = "font-size: 30px;">Time: </label>			
+				<select id="Time" size="1" >
+				<option value="">Option</option>
+				<option value= 0>0:00</option>
+				<option value= 1>1:00</option>
+				<option value= 2>2:00</option>
+				<option value= 3>3:00</option>
+				<option value= 4>4:00</option>
+				<option value= 5>5:00</option>
+				<option value= 6>6:00</option>
+				<option value= 7 >7:00</option>
+				<option value= 8>8:00</option>
+				<option value= 9>9:00</option>
+				<option value= 10>10:00</option>
+				<option value= 11>11:00</option>
+				<option value= 12>12:00</option>
+				<option value= 13>13:00</option>
+				<option value= 14 >14:00</option>
+				<option value= 15>15:00</option>
+				<option value= 16>16:00</option>
+				<option value= 17>17:00</option>
+				<option value= 18>18:00</option>
+				<option value= 19>19:00</option>
+				<option value= 20>20:00</option>
+				<option value= 21>21:00</option>
+				<option value= 22>22:00</option>
+				<option value= 23>23:00</option>
 			</select>
 
-<label style = "font-size: 30px;">Time: </label>			
-			<select id="Time" size="1" >
-			<option value="">Option</option>
-			<option value= 0>0:00</option>
-			<option value= 1>1:00</option>
-			<option value= 2>2:00</option>
-			<option value= 3>3:00</option>
-			<option value= 4>4:00</option>
-			<option value= 5>5:00</option>
-			<option value= 6>6:00</option>
-			<option value= 7 >7:00</option>
-			<option value= 8>8:00</option>
-			<option value= 9>9:00</option>
-			<option value= 10>10:00</option>
-			<option value= 11>11:00</option>
-			<option value= 12>12:00</option>
-			<option value= 13>13:00</option>
-			<option value= 14 >14:00</option>
-			<option value= 15>15:00</option>
-			<option value= 16>16:00</option>
-			<option value= 17>17:00</option>
-			<option value= 18>18:00</option>
-			<option value= 19>19:00</option>
-			<option value= 20>20:00</option>
-			<option value= 21>21:00</option>
-			<option value= 22>22:00</option>
-			<option value= 23>23:00</option>
-			</select>
-
-		
-		<input type = "button" value = "Enter" id="Submit" onclick="SelectDateandTime()"/>
-		
-		
-
-<script>
-
-	function logout(){
+			<input type = "button" value = "Enter" id="Submit" onclick="SelectDateandTime()"/>
+			
+			<hr style = "border: solid 2px #68941f; border-radius: 5px;"/>
+			<table id="myTable1" border = "5px" style = "background-color: white">
+				<tr>
+				</tr>
+			</table>
+			<br>
+			<div style = "overflow-y: auto; height: 300px;">
+				<table id="myTable" border = "5px" style = "background-color: white;">
+					<tr>
+					</tr>
+				</table>
+			</div>
+		</div>
+			
+		<script type = "text/javascript">
+				function logout(){
 					alert("Logout Success!");
 					window.location.href = "MCO1 - Login.html";
 				}
@@ -103,7 +107,7 @@
 				}
 				
 				function customer(){
-					window.location.href = "MCO1-Customers.html";
+					window.location.href = "MCO1 - Customers.html";
 				}
 				
 				function menu(){
@@ -111,11 +115,13 @@
 				}
 				
 				function species(){
-					window.location.href = "MCO1-Species.html";
+					window.location.href = "MCO1 - Species.html";
 				}
-	
-		
-	function deletetable(){
+				function SelectSpecies(sel){
+				   
+				}
+				
+				function deletetable(){
 		var nTable = document.getElementById("myTable").rows.length;
 		for(i = 0; i < nTable - 1; i++){
 			document.getElementById("myTable").deleteRow(0);
@@ -243,8 +249,6 @@
 xmlhttp.open("GET", "http://localhost:3000/sales", true);
 xmlhttp.send();
 }
-	
-</script>
-
-</body>
+		</script>
+	</body>
 </html>

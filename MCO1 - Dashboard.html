@@ -1,60 +1,74 @@
 <html>
-<head>
-	<title>Krusty Krab</title>
-	<link rel="stylesheet" type= "text/css"  href="MCO1 - Dashboard.css">
-	<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
-	<link rel = "icon" href = "icon.png">
-	<style type = "text/css">
-		body {
-			font-family: 'Gloria Hallelujah', cursive;
-	</style>
-</head>
+	<head>
+		<title>Krusty Krab</title>
+		<link rel="stylesheet" type= "text/css"  href="MCO1 - Dashboard.css">
+		<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+		<link rel = "icon" href = "icon.png">
+		<style type = "text/css">
+			body {
+				font-family: 'Gloria Hallelujah', cursive;
+		</style>
+	</head>
 
-<body background = "BG.png">
+	<body background = "BG.png">
 
-		<div id = "logo">
-			<img src = "KK.png" style = "width: 250px; height: 250px;">
-		</div>
-		
-		<input type = "button" value = "Logout" id = "logout" onclick = "logout()"/>
-		
-		<div id = "header">
-			<h1 size = "10px">Welcome to the Krusty Krab!</h1>
-		</div>
-		
-		<div id = "pages">
-			<input type = "button" value = "Home" onclick = "Home()"/>
-			<br><br>
-			<input type = "button" value = "Customers Served" onclick = "Home()"/>
-			<br><br>
-			<input type = "button" value = "Menu" onclick = "ToMenu()"/>
-			<br><br>
-			<input type = "button" value = "Species" onclick = "ToSpecies()"/>
-		</div>
-		
-<script type = "text/javascript">
-		function logout(){
-			alert("Logout Success!");
-			window.location.href = "MCO1 - Login.html";
-		}
-		
-        function Home(){
-		   alert("Successfully signed out");
-		   window.location.href = "MCO1 - Dashboard.html";
-		}
-		
-		function ToSpecies(){
-		    window.location.replace("MCO1 - Species.html");
-		}
-		
-		function ToMenu(){
-		    window.location.replace("MCO1 - Menu.html");
-		}
-		
-</script>
-
-
-
-</form>
-</body>
+			<div id = "logo">
+				<img src = "KK.png" style = "width: 250px; height: 250px;">
+			</div>
+			
+			
+			
+			<input type = "button" value = "Logout" id = "logout" onclick = "logout()"/>
+			
+			<div id = "header">
+				<h1 size = "10px">Welcome to the Krusty Krab!</h1>
+			</div>
+			
+			<div id = "pages">
+				<input type = "button" value = "Home" onclick = "Home()"/>
+				<br><br>
+				<input type = "button" value = "Customers Served" onclick = "customer()"/>
+				<br><br>
+				<input type = "button" value = "Menu" onclick = "menu()"/>
+				<br><br>
+				<input type = "button" value = "Species" onclick = "species()"/>
+			</div>
+				
+			<div id = "main">
+				<h2 style = "text-align: center; font-size: 30px;">User Manual</h2>
+				<hr style = "border: solid 2px #68941f; border-radius: 5px; width: 900px;"/>
+				<ul style = "margin: auto; width: 70%;">
+					<li>Customers Served button leads to the table of customers based on date and time</li>
+					<li>Menu button leads to the table of menu items based on their sales</li>
+					<li>Species button leads to the table of species  based on their orders</li>
+				</ul>
+			</div>
+			
+			<div id = "mrK">
+					<img src = "mrKrabs.png" style = "float: right;">
+			</div>
+			
+			<script type = "text/javascript">
+					function logout(){
+						alert("Logout Success!");
+						window.location.href = "MCO1 - Login.html";
+					}
+					
+					function Home(){
+					   window.location.href = "MCO1 - Dashboard.html";
+					}
+					
+					function customer(){
+						window.location.href = "MCO1 - Customers.html";
+					}
+					
+					function menu(){
+						window.location.href = "MCO1 - Menu.html";
+					}
+					
+					function species(){
+						window.location.href = "MCO1 - Species.html";
+					}
+			</script>
+	</body>
 </html>

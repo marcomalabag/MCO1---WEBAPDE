@@ -12,18 +12,15 @@
 
 <body background = "BG.png">
 
+<table id="myTable">
+		<tr>
+		</tr>
+		</table>
+		<br>
+
 <div id ="Selection">
 
-Select species to see which grub is most popular among the selected species: <select id="SelectSpecies" size="1">
-    <option/>
-	<option>leatherback turtle</option>
-	<option>salmon</option>
-    <option>seahorse</option>
-    <option>coral</option>
-    <option>giant clam</option>
-    <option>gray whale</option>
-    <option>sea lion</option>
-</select>
+
 </div>
 
 <div id = "logo">
@@ -39,11 +36,11 @@ Select species to see which grub is most popular among the selected species: <se
 		<div id = "pages">
 			<input type = "button" value = "Home" onclick = "Home()"/>
 			<br><br>
-			<input type = "button" value = "Customers Served" onclick = "Home()"/>
+			<input type = "button" value = "Customers Served" onclick = "customer()"/>
 			<br><br>
-			<input type = "button" value = "Menu" onclick = "ToMenu()"/>
+			<input type = "button" value = "Menu" onclick = "menu()"/>
 			<br><br>
-			<input type = "button" value = "Species" onclick = "ToSpecies()"/>
+			<input type = "button" value = "Species" onclick = "species()"/>
 		</div>
 		 
 		 <form name="EnterButton">
@@ -54,22 +51,50 @@ Select species to see which grub is most popular among the selected species: <se
 
 <script type = "text/javascript">
 		function logout(){
-			alert("Logout Success!");
-			window.location.href = "MCO1 - Login.html";
+					alert("Logout Success!");
+					window.location.href = "MCO1 - Login.html";
+				}
+				
+				function Home(){
+				   window.location.href = "MCO1 - Dashboard.html";
+				}
+				
+				function customer(){
+					window.location.href = "MCO1-Customers.html";
+				}
+				
+				function menu(){
+					window.location.href = "MCO1 - Menu.html";
+				}
+				
+				function species(){
+					window.location.href = "MCO1-Species.html";
+				}
+		var xmlhttp = new XMLHttpRequest();
+		var table = document.getElementById("myTable");
+		var row1 = table.insertRow(0);
+				var cells3 = row1.insertCell(0);
+				var cells4 = row1.insertCell(1);
+				var cells5 = row1.insertCell(2);
+				cells3.innerHTML = "Krusty_Combo";
+				cells4.innerHTML = "Krusty_Deluxe";
+				cells5.innerHTML = "Krabby_Pattie";
+		xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+				var myArr = JSON.parse(this.responseText);
+				
+				var row = table.insertRow(0);
+				var cells = row.insertCell(0);
+				var cells1 = row.insertCell(1);
+				var cells2 = row.insertCell(2);
+				cells.innerHTML = myArr.Krusty_Combo;
+				cells1.innerHTML = myArr.Krusty_Deluxe;
+				cells2.innerHTML = myArr.Krabby_Pattie;
 		}
+		};
 		
-        function Home(){
-		   alert("Successfully signed out");
-		   window.location.href = "MCO1 - Dashboard.html";
-		}
-		
-		function ToSpecies(){
-		    window.location.replace("MCO1 - Species.html");
-		}
-		
-		function ToMenu(){
-		    window.location.replace("MCO1 - Menu.html");
-		}
+		xmlhttp.open("GET", "http://localhost:3000/burger_sales", true);
+		xmlhttp.send();
 		
 </script>
 

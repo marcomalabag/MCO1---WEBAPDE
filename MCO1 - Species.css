@@ -17,15 +17,6 @@ body {
 	bottom: 10px;
 }
 
-#mrK {
-	position: relative;
-	z-index: 1;
-	float: right;
-	right: -1000px;
-	bottom: 325px;
-}
-
-
 #header {
 	padding: 20px;
 	margin: 20px;
@@ -57,25 +48,6 @@ body {
 	border-color: #804506;
 }
 
-ul li{
- font-size:25px;
-}
-
-#main {
-	padding: 30px;
-	margin: 50px;
-	background-color: #caff75;
-	border-radius: 25px;
-	float: right;
-	bottom: 305px;
-	border-style: solid;
-	border-width: 5px;
-	position: relative;
-	border-color: #68941f;
-	width: 1050px;
-	height: 450px;
-}
-
 ::-webkit-scrollbar {
     width: 0px;
     background: transparent;
@@ -93,6 +65,66 @@ ul li{
 	border-style: solid;
 	border-width: 5px;
 	border-color: grey;
+}
+
+#selectSpecies {
+	width: 200px;
+	height: 30px;
+	border-radius: 25px;
+	font-size: 20px;
+}
+
+#Date {
+	width: 200px;
+	height: 30px;
+	border-radius: 25px;
+	font-size: 20px;
+}
+
+#Time {
+	width: 200px;
+	height: 30px;
+	border-radius: 25px;
+	font-size: 20px;
+}
+
+#main {
+	padding: 30px;
+	margin: 50px;
+	background-color: #caff75;
+	border-radius: 25px;
+	float: right;
+	bottom: 305px;
+	border-style: solid;
+	border-width: 5px;
+	position: relative;
+	border-color: #68941f;
+	width: 1050px;
+	height: 500px;
+}
+
+#squidward {
+	position: relative;
+	z-index: 1;
+	float: right;
+	right: 100px;
+	bottom: -400px
+}
+
+#spongebob {
+	position: relative;
+	z-index: 1;
+	float: right;
+	right: 850px;
+	bottom: -450px;
+}
+
+#patrick {
+	position: relative;
+	z-index: 1;
+	float: right;
+	right: 400px;
+	bottom: -350px;
 }
 
 input {

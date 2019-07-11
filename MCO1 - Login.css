@@ -1,8 +1,8 @@
 h1 {
 	color: #5298E8;
 	font-size: 40px;
-	margin: 0 auto;
 	text-align: center;
+	margin: 0 auto;
 }
 
 body {
@@ -16,15 +16,6 @@ body {
 	right: -50px;
 	bottom: 10px;
 }
-
-#mrK {
-	position: relative;
-	z-index: 1;
-	float: right;
-	right: -1000px;
-	bottom: 325px;
-}
-
 
 #header {
 	padding: 20px;
@@ -54,38 +45,15 @@ body {
 	font-family: inherit;
 	color: maroon;
 	text-align: center;
-	border-color: #804506;
-}
-
-ul li{
- font-size:25px;
+	 background: transparent;
+	 border-style: none;
+    font-size:0;
 }
 
 #main {
 	padding: 30px;
 	margin: 50px;
-	background-color: #caff75;
-	border-radius: 25px;
 	float: right;
-	bottom: 305px;
-	border-style: solid;
-	border-width: 5px;
-	position: relative;
-	border-color: #68941f;
-	width: 1050px;
-	height: 450px;
-}
-
-::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-}
-
-#pages {
-	padding: 30px;
-	margin: 50px;
-	float: left;
-	right: 250px;
 	background-color: white;
 	border-radius: 25px;
 	position: relative;
@@ -93,18 +61,4 @@ ul li{
 	border-style: solid;
 	border-width: 5px;
 	border-color: grey;
-}
-
-input {
-	display: inline-block;
-	float: right;
-	width: 200px;
-	background-color: #5298E8;
-	font-size: 20px;
-	padding: 5px;
-	margin: 5px;
-	border-radius: 100px;
-	font-family: inherit;
-	color: #F2E258;
-	border-color: #057db5;
 }

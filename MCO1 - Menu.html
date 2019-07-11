@@ -72,18 +72,21 @@
 				}
 		var xmlhttp = new XMLHttpRequest();
 		var table = document.getElementById("myTable");
-		var row1 = table.insertRow(0);
-				var cells3 = row1.insertCell(0);
-				var cells4 = row1.insertCell(1);
-				var cells5 = row1.insertCell(2);
-				cells3.innerHTML = "Krusty_Combo";
-				cells4.innerHTML = "Krusty_Deluxe";
-				cells5.innerHTML = "Krabby_Pattie";
+		var row = table.insertRow(0);
+						var header = table.createTHead();
+						var row1 = header.insertRow(0);
+						var cells = row1.insertCell(0);
+						var cells1 = row1.insertCell(1);
+						var cells2 = row1.insertCell(2);
+						
+						cells.innerHTML = "<b>Krusty Combo</b>";
+						cells1.innerHTML = "<b>Krabby Pattie</b>";
+						cells2.innerHTML = "<b>Kursty Deluxe</b>";
 		xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 				var myArr = JSON.parse(this.responseText);
 				
-				var row = table.insertRow(0);
+				var row = table.insertRow(1);
 				var cells = row.insertCell(0);
 				var cells1 = row.insertCell(1);
 				var cells2 = row.insertCell(2);

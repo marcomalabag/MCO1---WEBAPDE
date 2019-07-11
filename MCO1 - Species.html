@@ -36,13 +36,9 @@
 		</div>
 				 
 		<div id = "main">
-		<table id="myTable">
-		<tr>
-		</tr>
-		</table>
 		<br>
 			<label style = "font-size: 30px;">Species: </label>
-			<select id="selectSpecies" size="1" >
+			<select id="selectSpecies" size="1" onchange = "SelectSpecies()">
 			<option value="">Option</option>
 			<option value="Leatherback Turtle">Leatherback Turtle</option>
 			<option value="Salmon">Salmon</option>
@@ -53,7 +49,11 @@
 			<option value="Sea Lion">Sea Lion</option>
 			</select>
 			
-			<input type = "button" value = "Enter" id="Submit" onclick="SelectSpecies()"/>
+			
+			<table id="myTable">
+		<tr>
+		</tr>
+		</table>
 		</div>
 		
 			
